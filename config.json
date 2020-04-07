@@ -1,0 +1,9 @@
+{
+  "configVersion": "1",
+  "https": true,
+  "templateVersion": 8,
+  "locales": [
+    "en"
+  ],
+  "features": []
+}
