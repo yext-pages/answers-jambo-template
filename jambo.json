@@ -7,6 +7,5 @@
     "pages": "pages",
     "partials": "partials",
     "cards": "cards"
-  },
-  "defaultTheme": "answers-hitchhiker-theme"
+  }
 }
