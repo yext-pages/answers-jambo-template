@@ -3,7 +3,7 @@
     "themes": "themes",
     "config": "config",
     "overrides": "overrides",
-    "output": "public",
+    "output": "desktop",
     "pages": "pages",
     "partials": "partials",
     "cards": "cards"
