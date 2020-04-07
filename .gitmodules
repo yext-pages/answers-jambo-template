@@ -1,0 +1,3 @@
+[submodule "themes/answers-hitchhiker-theme"]
+	path = themes/answers-hitchhiker-theme
+	url = git@github.com:yext/answers-hitchhiker-theme.git
