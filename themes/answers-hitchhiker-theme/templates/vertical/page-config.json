@@ -1,0 +1,18 @@
+{
+  "verticalKey": "<REPLACE ME>",
+  "pageTitle": "<REPLACE ME>",
+  "componentSettings": {
+    "QASubmission": {
+      "entityId": "<REPLACE ME>"
+    }
+  },
+  "verticalsToConfig": {
+    "<REPLACE ME>": {
+      "cardType": "<REPLACE ME>"
+    }
+  },
+  "metaTitle": "<REPLACE ME>",
+  "metaDescription": "<REPLACE ME>",
+  "canonicalUrl": "<REPLACE ME>",
+  "keywords": "<REPLACE ME>"
+}

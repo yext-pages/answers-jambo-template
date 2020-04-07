@@ -1,0 +1,39 @@
+ANSWERS.addComponent('UniversalResults', Object.assign({{{ json componentSettings.UniversalResults }}}, {
+    container: '.js-answersUniversalResults',
+    verticals: {
+      {{#each verticalConfigs}}
+        {{#if verticalKey}}
+          {{verticalKey}}: {
+              {{#with (lookup verticalsToConfig verticalKey)}}
+                  {{#if cardType}}
+                      card: {
+                          cardType: '{{cardType}}'
+                      },
+                  {{/if}}
+                  title: {{#if sectionTitle}}'{{sectionTitle}}'{{else}}{{#if label}}'{{label}}'{{else}}'{{../verticalKey}}'{{/if}}{{/if}},
+                  {{#if icon}}
+                      icon: '{{icon}}',
+                  {{/if}}
+                  viewAllText: {{#if viewAllText}}{{viewAllText}}{{else}}'View All'{{/if}},
+                  verticalPages: [
+                  {{#with ../../verticalConfigs}}
+                    {{#each this}}
+                      {{#if verticalKey}}
+                        {
+                          verticalKey: '{{verticalKey}}',
+                          {{#with (lookup verticalsToConfig verticalKey)}}
+                            {{#if icon}}icon: '{{icon}}',{{/if}}
+                            label: {{#if label}}'{{label}}'{{else}}{{#if ../verticalKey}}'{{../verticalKey}}'{{else}}'{{@key}}'{{/if}}{{/if}},
+                            url: {{#if url}}'{{url}}'{{else}}'{{@key}}.html'{{/if}},
+                          {{/with}}
+                        }{{#unless @last}},{{/unless}}
+                      {{/if}}
+                    {{/each}}
+                  {{/with}}
+                  ],
+              {{/with}}
+          },
+        {{/if}}
+      {{/each}}
+    }
+}));
