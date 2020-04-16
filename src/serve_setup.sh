@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # Install Jambo
-npm install -g @yext/jamboree
+npm install -D @yext/jamboree
 
 # Install serve
-npm install -g serve
+npm install -g serve npx
 
 # Build public
 cd ..

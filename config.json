@@ -11,7 +11,7 @@
 		"build_cmd": "./build.sh",
 		"serve_setup_cmd": "./serve_setup.sh",
 		"serve_cmd": "./serve.sh",
-		"rebuild_cmd": "./rebuild.sh",
+		"rebuild_cmd": "",
 		"output_directories": ["desktop"]
 	}
 }

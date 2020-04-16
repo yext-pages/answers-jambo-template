@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # Install Jambo
-npm install -g @yext/jamboree
+npm install -D @yext/jamboree
+npm install -g npx
 
 cd ..
 npm install

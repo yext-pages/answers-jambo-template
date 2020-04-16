@@ -1,4 +1,4 @@
 #!/bin/sh
 cd ..
 grunt webpack
-jambo build
+npx jambo build
