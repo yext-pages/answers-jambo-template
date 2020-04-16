@@ -10,4 +10,4 @@ npm install -g serve npx
 cd ..
 npm install
 grunt webpack
-jambo build
+npx jambo build
