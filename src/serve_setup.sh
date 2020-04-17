@@ -1,9 +1,6 @@
 #!/bin/sh
 
-# Install Jambo
-npm install -D @yext/jamboree
-
-# Install serve
+# Install serve and npx
 npm install -g serve npx
 
 # Build public
