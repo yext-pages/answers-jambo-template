@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Install Jambo
+# Install npx
 npm install -g npx
 
 cd ..
