@@ -1,0 +1,16 @@
+{
+  "pageTitle": "<REPLACE ME>",
+  "componentSettings": {
+    "QASubmission": {
+      "entityId": "<REPLACE ME>"
+    }
+  },
+  "verticalsToConfig": {
+    "Universal": {
+      "isFirst": "true"
+    }
+  },
+  "metaDescription": "<REPLACE ME>",
+  "canonicalUrl": "<REPLACE ME>",
+  "keywords": "<REPLACE ME>"
+}
