@@ -6,7 +6,8 @@
     "output": "desktop",
     "pages": "pages",
     "partials": [
-      "partials"
+      "partials",
+      "cards"
     ]
   },
   "defaultTheme": "answers-hitchhiker-theme"
