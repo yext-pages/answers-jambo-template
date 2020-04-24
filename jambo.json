@@ -2,6 +2,7 @@
   "dirs": {
     "themes": "themes",
     "config": "config",
+    "overrides": "overrides",
     "output": "desktop",
     "pages": "pages",
     "partials": [
