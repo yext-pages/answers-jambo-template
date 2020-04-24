@@ -2,7 +2,7 @@
   "dirs": {
     "themes": "themes",
     "config": "config",
-    "output": "public",
+    "output": "desktop",
     "pages": "pages",
     "partials": [
       "partials",
