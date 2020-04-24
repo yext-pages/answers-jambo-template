@@ -2,11 +2,10 @@
   "dirs": {
     "themes": "themes",
     "config": "config",
-    "overrides": "overrides",
-    "output": "desktop",
+    "output": "public",
     "pages": "pages",
-    "partials": "partials",
-    "cards": "cards"
-  },
-  "defaultTheme": "answers-hitchhiker-theme"
+    "partials": [
+      "partials"
+    ]
+  }
 }
