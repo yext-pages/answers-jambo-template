@@ -5,8 +5,9 @@
     "overrides": "overrides",
     "output": "desktop",
     "pages": "pages",
-    "partials": "partials",
-    "cards": "cards"
+    "partials": [
+      "partials"
+    ]
   },
   "defaultTheme": "answers-hitchhiker-theme"
 }

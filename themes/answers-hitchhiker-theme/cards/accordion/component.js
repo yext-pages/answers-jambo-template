@@ -1,9 +1,9 @@
-{{> cards_card_component componentName='AccordionCard'}}
+{{> cards/card_component componentName='AccordionCard'}}
 
 class AccordionCardComponent extends BaseCard.AccordionCard {
   constructor(config = {}, systemConfig = {}) {
     super(config, systemConfig);
-    this.setTemplate(`{{{read 'cards_accordion_template' }}}`);
+    this.setTemplate(`{{{read 'cards/accordion/template' }}}`);
   }
 
   /**
@@ -14,16 +14,20 @@ class AccordionCardComponent extends BaseCard.AccordionCard {
    */
   dataForRender(profile) {
     return {
-      title: profile.name,
-      details: profile.answer,
+      title: profile.name, // The header text of the card
+      // subtitle: '', // The sub-header text of the card
+      details: profile.answer, // The text in the body of the card
+      // The calls to action on the card
       callsToAction: profile.c_ctas ? profile.c_ctas.map((cta) => {
         return {
-          "label": cta.text,
-          "url": cta.url,
-          "iconName": cta.icon,
-          "target": "_parent",
+          label: cta.text, // The label of the CTA
+          url: cta.url, // The URL a user will be directed to when clicking
+          iconName: cta.icon, // The icon to use for the CTA
+          target: "_parent", // If the URL will be opened in a new tab, etc.
+          modifiers: "yxt-CTA--solo", // Additional CSS classes for the CTA
+          eventType: "CTA_CLICK" // Type of Analytics event fired when clicking the CTA
         };
-      }) : null,
+      }) : [],
     };
   }
 
@@ -48,12 +52,13 @@ class AccordionCardComponent extends BaseCard.AccordionCard {
       contentEl.setAttribute('aria-hidden', isExpanded ? 'false' : 'true');
 
       if (self.analyticsReporter) {
-        self.analyticsReporter.report({
-          eventType: isExpanded ? 'ROW_EXPAND' : 'ROW_COLLAPSE',
+        const event = new ANSWERS.AnalyticsEvent(self.isExpanded ? 'ROW_EXPAND' : 'ROW_COLLAPSE')
+        .addOptions({
           verticalKey: self.verticalKey,
           entityId: self.result._raw.id,
           searcher: self._config.isUniversal ? 'UNIVERSAL' : 'VERTICAL'
         });
+        self.analyticsReporter.report(event);
       }
     });
 
