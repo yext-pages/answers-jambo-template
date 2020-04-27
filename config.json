@@ -7,11 +7,11 @@
   ],
   "features": [],
   "ci_config": {
-		"build_setup_cmd": "./build_setup.sh",
-		"build_cmd": "./build.sh",
-		"serve_setup_cmd": "./serve_setup.sh",
-		"serve_cmd": "./serve.sh",
-		"rebuild_cmd": "",
-		"output_directories": ["desktop"]
-	}
+    "build_setup_cmd": "./ci/build_setup.sh",
+    "build_cmd": "./ci/build.sh",
+    "serve_setup_cmd": "./ci/serve_setup.sh",
+    "serve_cmd": "./ci/serve.sh",
+    "rebuild_cmd": "",
+    "output_directories": [ "desktop" ]
+  }
 }
