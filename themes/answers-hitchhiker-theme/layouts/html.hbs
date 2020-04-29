@@ -13,6 +13,9 @@
     <link rel="dns-prefetch" href="//dynl.mktgcdn.com">
     <link rel="dns-prefetch" href="//dynm.mktgcdn.com">
     <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <script>
+      document.documentElement.lang = {{#if global_config.locale}}{{global_config.locale}}{{else}}'en'{{/if}};
+    </script>
 
     {{#if metaDescription}}
       <meta name="description" content="{{metaDescription}}">
@@ -48,6 +51,9 @@
     {{/if}}
 
     <script src="bundle.js"></script>
+    <script>
+      const Formatter = HitchhikerJS.Formatters;
+    </script>
 
     {{#if global_config.googleTagManagerID}}
       <!-- Google Tag Manager -->

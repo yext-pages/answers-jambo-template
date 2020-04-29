@@ -1,13 +1,38 @@
-.HitchhikerStandardCard
+.HitchhikerEventCard
 {
-  display: flex;
-  font-size: .875rem;
   background-color: $color-brand-white;
   padding: $base-spacing;
+  display: flex;
+  font-size: .875rem;
 
-  &-detailsText
+  &-dateWrapper
   {
-    @include rich_text_formatting;
+    margin-right: $base-spacing;
+  }
+
+  &-dateInnerWrapper
+  {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    padding: $base-spacing;
+    text-align: center;
+    background-color: $color-background-highlight;
+    min-width: 100px;
+  }
+
+  &-day
+  {
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: $font-weight-semibold;
+  }
+
+  &-month
+  {
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: $font-weight-normal;
   }
 
   &-wrapper
@@ -20,7 +45,6 @@
   {
     display: flex;
     flex-direction: column;
-    width: 100%;
 
     @media (min-width: $breakpoint-mobile-max)
     {
@@ -32,13 +56,12 @@
 
   &-title
   {
-    text-decoration: none;
     font-size: 1.125rem;
     line-height: 1.5;
     font-weight: 600;
   }
 
-   &-titleLink
+  &-titleLink
   {
     @include Link;
   }
@@ -50,19 +73,14 @@
     margin-top: $base-spacing / 2;
   }
 
-  &-content
+  &-detailsText
   {
-    line-height: 1.4;
     margin-top: $base-spacing / 2;
   }
 
-  &-imgWrapper
+  &-content
   {
-    display: flex;
-    align-items: flex-start;
-    width: 6.25rem;
-    min-width: 6.25rem;
-    margin-right: 1rem;
+    line-height: 1.4;
   }
 
   &-ctasWrapper
@@ -72,8 +90,8 @@
 
     @media (min-width: $breakpoint-mobile-max)
     {
-      margin-left: $base-spacing / 2;
-      justify-content: center;
+      margin-left: 1.5rem;
+      margin-top: 0;
     }
   }
 
@@ -86,6 +104,7 @@
     @media (min-width: $breakpoint-mobile-max)
     {
       justify-content: center;
+      flex-basis: 50%;
     }
   }
 }

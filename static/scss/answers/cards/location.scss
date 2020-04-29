@@ -1,70 +1,179 @@
 .HitchhikerLocationCard
 {
-  padding: 16px;
   display: flex;
   font-size: .875rem;
-  background-color: #fff;
+  line-height: 1.4;
+  background-color: $color-brand-white;
+  padding: $base-spacing;
 
-  &-wrapper,
   &-contentWrapper
   {
+    display: flex;
+    flex-direction: column;
     width: 100%;
   }
 
-  &-wrapper &-contentWrapper
+  &-topRow
   {
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: nowrap;
   }
 
-  &-contentWrapper &-title
+  &-title
   {
-    color: #427ed2;
-    text-decoration: none;
     font-size: 1.125rem;
     line-height: 1.5;
     font-weight: 600;
-    margin-bottom: .5rem;
+  }
 
-    &:hover
-    {
-      color: #427ed2;
-      text-decoration: underline;
-    }
+  &-titleLink
+  {
+    @include Link;
+  }
+
+  &-distance
+  {
+    font-style: italic;
   }
 
   &-subtitle
   {
-    color: #757575;
+    color: $color-text-secondary;
     padding-bottom: 0;
+    margin-top: $base-spacing / 2;
   }
 
   &-content
   {
-    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $breakpoint-mobile-max)
+    {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 
   &-imgWrapper
   {
     display: flex;
     align-items: flex-start;
+    position: relative;
     width: 6.25rem;
     min-width: 6.25rem;
     margin-right: 1rem;
+    margin-top: $base-spacing / 2;
+  }
+
+  &-imgTagWrapper
+  {
+    position: absolute;
+    opacity: 0;
+  }
+
+  &-contactInfo
+  {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $breakpoint-mobile-max)
+    {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  &-core
+  {
+    margin-top: $base-spacing / 2;
+
+    @media (min-width: $breakpoint-mobile-max)
+    {
+      padding-right: $base-spacing * 2;
+    }
+  }
+
+  &-address
+  {
+    white-space: nowrap;
+  }
+
+  &-phone
+  {
+    display: flex;
+    font-weight: $font-weight-semibold;
+    margin-top: $base-spacing / 2;
+  }
+
+  &-phone--desktop {
+    display: none;
+
+    @media (min-width: $breakpoint-mobile-max)
+    {
+      display: flex;
+    }
+  }
+
+  &-phone--mobile {
+    @include Link;
+    display: flex;
+
+    @media (min-width: $breakpoint-mobile-max)
+    {
+      display: none;
+    }
+  }
+
+  &-details
+  {
+    @include rich_text_formatting;
+    margin-top: $base-spacing / 2;
+  }
+
+  &-hoursText
+  {
+    margin-top: $base-spacing / 2;
+  }
+
+  .Hours-statusText--current
+  {
+    font-weight: $font-weight-semibold;
+  }
+
+  &-services
+  {
+    flex-basis: 100%;
+    margin-top: $base-spacing / 2;
+  }
+
+  &-servicesLabel
+  {
+    font-weight: $font-weight-semibold;
+    padding-right: 2px;
   }
 
   &-ctasWrapper
   {
-    display: flex;
-    margin-left: 1.5rem;
     text-transform: uppercase;
+    margin-top: $base-spacing / 2;
+
+    @media (min-width: $breakpoint-mobile-max)
+    {
+      margin-left: $base-spacing / 2;
+      justify-content: center;
+    }
   }
 
-  .Icon {
-    height: 18px;
-    width: 18px;
-    margin-right: 8px;
+  &-primaryCTA,
+  &-secondaryCTA
+  {
+    display: flex;
+    margin-top: $base-spacing / 2;
+
+    @media (min-width: $breakpoint-mobile-max)
+    {
+      justify-content: center;
+    }
   }
 }
