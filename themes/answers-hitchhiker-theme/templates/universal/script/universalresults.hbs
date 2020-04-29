@@ -10,7 +10,7 @@ ANSWERS.addComponent('UniversalResults', Object.assign({{{ json componentSetting
                           cardType: '{{cardType}}'
                       },
                   {{/if}}
-                  title: {{#if sectionTitle}}'{{sectionTitle}}'{{else}}{{#if label}}'{{label}}'{{else}}'{{../verticalKey}}'{{/if}}{{/if}},
+                  sectionTitle: {{#if sectionTitle}}'{{sectionTitle}}'{{else}}{{#if label}}'{{label}}'{{else}}'{{../verticalKey}}'{{/if}}{{/if}},
                   {{#if icon}}
                       sectionTitleIconName: '{{icon}}',
                   {{/if}}
@@ -18,7 +18,9 @@ ANSWERS.addComponent('UniversalResults', Object.assign({{{ json componentSetting
                   viewAllText: {{#if viewAllText}}{{viewAllText}}{{else}}'View All'{{/if}},
                   {{#if mapConfig}}
                     includeMap: true,
-                    mapConfig: {{{json mapConfig}}},
+                    mapConfig: Object.assign({
+                      apiKey: HitchhikerJS.getDefaultMapApiKey(('{{ mapConfig.mapProvider }}'))
+                    }, {{{ json mapConfig }}}),
                   {{/if}}
               {{/with}}
           },
