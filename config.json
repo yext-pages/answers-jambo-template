@@ -12,6 +12,12 @@
     "serve_setup_cmd": "./ci/serve_setup.sh",
     "serve_cmd": "./ci/serve.sh",
     "rebuild_cmd": "",
-    "output_directories": [ "desktop" ]
+    "output_directories": [ "desktop" ],
+    "dependencies": {
+      "install_deps_cmd": "./ci/install_deps.sh",
+      "required_files": [
+        "package.json"
+      ]
+    }
   }
 }
