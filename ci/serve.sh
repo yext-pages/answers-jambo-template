@@ -1,3 +1,3 @@
 #!/bin/sh
-serve -l 8080 &
+serve -l 8080 desktop/ &
 grunt watch
