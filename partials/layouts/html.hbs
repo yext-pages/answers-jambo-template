@@ -13,12 +13,23 @@
     <link rel="dns-prefetch" href="//dynl.mktgcdn.com">
     <link rel="dns-prefetch" href="//dynm.mktgcdn.com">
     <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <script>
+      document.documentElement.lang = {{#if global_config.locale}}{{global_config.locale}}{{else}}'en'{{/if}};
+    </script>
 
-    <meta name="description" content="{{metaDescription}}">
-    <meta name="keywords" content="{{keywords}}">
+    {{#if metaDescription}}
+      <meta name="description" content="{{metaDescription}}">
+    {{/if}}
+    {{#if keywords}}
+      <meta name="keywords" content="{{keywords}}">
+    {{/if}}
 
-    <meta property="og:title" content="{{metaTitle}}">
-    <meta property="og:description" content="{{metaDescription}}">
+    {{#if pageTitle}}
+      <meta property="og:title" content="{{pageTitle}}">
+    {{/if}}
+    {{#if metaDescription}}
+      <meta property="og:description" content="{{metaDescription}}">
+    {{/if}}
     <meta property="og:type" content="website">
     {{#if global_config.logo}}
       <meta property="og:image" content="{{global_config.logo}}">
@@ -31,14 +42,18 @@
     {{#if canonicalUrl}}
       <link rel="canonical" href="{{canonicalUrl}}" />
     {{/if}}
-    <title>{{metaTitle}}</title>
+    {{#if pageTitle}}
+      <title>{{pageTitle}}</title>
+    {{/if}}
 
     {{#if global_config.favicon}}
       <link rel="shortcut icon" href="{{global_config.favicon}}">
     {{/if}}
 
-		<link rel="stylesheet" type="text/css" href="bundle.css">
     <script src="bundle.js"></script>
+    <script>
+      const Formatter = HitchhikerJS.Formatters;
+    </script>
 
     {{#if global_config.googleTagManagerID}}
       <!-- Google Tag Manager -->
@@ -58,5 +73,6 @@
       <!-- End Google Tag Manager (noscript) -->
     {{/if}}
     {{> @partial-block }}
+    <link rel="stylesheet" type="text/css" href="bundle.css">
   </body>
 </html>

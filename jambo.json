@@ -1,14 +1,12 @@
 {
+  "defaultTheme": "answers-hitchhiker-theme",
   "dirs": {
     "themes": "themes",
     "config": "config",
-    "overrides": "overrides",
     "output": "desktop",
     "pages": "pages",
     "partials": [
-      "partials",
-      "cards"
+      "partials"
     ]
-  },
-  "defaultTheme": "answers-hitchhiker-theme"
+  }
 }
