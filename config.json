@@ -6,6 +6,7 @@
     "en"
   ],
   "features": [],
+  "requireArtifactBuild": true,
   "ci_config": {
     "build_setup_cmd": "./ci/build_setup.sh",
     "build_cmd": "./ci/build.sh",
