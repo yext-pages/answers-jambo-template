@@ -1,0 +1,43 @@
+ANSWERS.addComponent('UniversalResults', Object.assign({}, {
+  container: '.js-answersUniversalResults',
+  config: Object.assign({}, {
+      {{!-- Map each Vertical config's verticalsToConfig --}}
+      {{#each verticalConfigs}}
+        {{#if verticalKey}}
+          '{{verticalKey}}': {
+            {{#with (lookup verticalsToConfig verticalKey)}}
+              {{> VerticalConfig}}
+            {{/with}}
+          },
+        {{/if}}
+      {{/each}}
+    }, {
+      {{!-- Map the Universal config's verticalsToConfig --}}
+      {{#each verticalsToConfig}}
+        '{{@key}}': {
+          {{> VerticalConfig verticalKey=@key}}
+        },
+      {{/each}}
+    }),
+  },
+  {{{ json componentSettings.UniversalResults }}}
+));
+
+{{#*inline 'VerticalConfig'}}
+  {{#if cardType}}
+    card: {
+        cardType: '{{cardType}}'
+    },
+  {{/if}}
+  sectionTitle: {{#if sectionTitle}}'{{sectionTitle}}'{{else}}{{#if label}}'{{label}}'{{else}}'{{verticalKey}}'{{/if}}{{/if}},
+  {{#if icon}}
+      sectionTitleIconName: '{{icon}}',
+  {{/if}}
+  {{#if iconUrl}}sectionTitleIconUrl: '{{iconUrl}}',{{/if}}
+  viewAllText: {{#if viewAllText}}{{viewAllText}}{{else}}'View All'{{/if}},
+  {{#if mapConfig}}
+    mapConfig: Object.assign({
+      apiKey: HitchhikerJS.getDefaultMapApiKey(('{{ mapConfig.mapProvider }}'))
+    }, {{{ json mapConfig }}}),
+  {{/if}}
+{{/inline}}
