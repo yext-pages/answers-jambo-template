@@ -1,3 +1,3 @@
 #!/bin/sh
-grunt webpack
 npx jambo build
+grunt webpack
