@@ -6,7 +6,7 @@ ANSWERS.addComponent('UniversalResults', Object.assign({}, {
         {{#if verticalKey}}
           '{{verticalKey}}': {
             {{#with (lookup verticalsToConfig verticalKey)}}
-              {{> VerticalConfig}}
+              {{> VerticalConfig verticalKey=../verticalKey}}
             {{/with}}
           },
         {{/if}}
@@ -24,6 +24,7 @@ ANSWERS.addComponent('UniversalResults', Object.assign({}, {
 ));
 
 {{#*inline 'VerticalConfig'}}
+  modifier: '{{verticalKey}}',
   {{#if cardType}}
     card: {
         cardType: '{{cardType}}'
@@ -37,7 +38,7 @@ ANSWERS.addComponent('UniversalResults', Object.assign({}, {
   viewAllText: {{#if viewAllText}}{{viewAllText}}{{else}}'View All'{{/if}},
   {{#if mapConfig}}
     mapConfig: Object.assign({
-      apiKey: HitchhikerJS.getDefaultMapApiKey(('{{ mapConfig.mapProvider }}'))
+      apiKey: HitchhikerJS.getDefaultMapApiKey('{{ mapConfig.mapProvider }}')
     }, {{{ json mapConfig }}}),
   {{/if}}
 {{/inline}}
