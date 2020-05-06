@@ -1,4 +1,4 @@
-.AnswersLocatorTemplate .Answers
+.AnswersVerticalMap .Answers
 {
   &-resultsWrapper
   {
@@ -54,6 +54,11 @@
     {
       flex-direction: column;
     }
+  }
+
+  &-sortOptions
+  {
+    padding: 0 $base-spacing;
   }
 
   &-map

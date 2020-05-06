@@ -2,14 +2,8 @@ ANSWERS.addComponent('VerticalResults', Object.assign({}, {
   container: '.js-answersVerticalResults',
   {{#if verticalKey}}
     verticalKey: '{{verticalKey}}',
+    modifier: '{{verticalKey}}',
   {{/if}}
-  {{#with componentSettings.VerticalResults}}
-    {{#if mapConfig}}
-      mapConfig: Object.assign({
-        apiKey: HitchhikerJS.getDefaultMapApiKey(('{{ mapConfig.mapProvider }}'))
-      }, {{{ json mapConfig }}}),
-    {{/if}}
-  {{/with}}
   verticalPages: [
     {{#each verticalConfigs}}
       {{#if verticalKey}}
