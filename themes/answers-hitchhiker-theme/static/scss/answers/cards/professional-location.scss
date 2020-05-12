@@ -1,0 +1,152 @@
+.HitchhikerProfessionalLocation
+{
+  $professional-location-spacing: $base-spacing !default;
+  $professional-location-ordinal-dimensions: 18px !default;
+
+  display: flex;
+  font-size: $font-size-md;
+  background-color: $color-brand-white;
+  padding: $professional-location-spacing;
+
+  &-body
+  {
+    flex-grow: 1;
+  }
+
+  &-contentWrapper
+  {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @media (min-width: $breakpoint-mobile-max)
+    {
+      justify-content: space-between;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &-imgWrapper
+  {
+    display: flex;
+    align-items: flex-start;
+    width: 6.25rem;
+    min-width: 6.25rem;
+    margin-right: 1rem;
+  }
+
+  &-ordinal {
+    padding-top: 3px;
+    border-radius: 50%;
+    margin-top: $professional-location-spacing / 4;
+    margin-right: $professional-location-spacing * 3/4;
+    width: $professional-location-ordinal-dimensions;
+    height: $professional-location-ordinal-dimensions;
+    background-color: $color-brand-primary;
+    border: solid black 1px;
+    text-align: center;
+    @include Text(
+      $color: white,
+      $size: $font-size-xs,
+      $line-height: $line-height-xs,
+      $weight: $font-weight-bold,
+    );
+  }
+
+  &-topRow
+  {
+    display: flex;
+  }
+
+  &-title
+  {
+    font-size: $font-size-lg;
+    line-height: $line-height-lg;
+    font-weight: $font-weight-semibold;
+  }
+
+   &-titleLink
+  {
+    @include Link;
+  }
+
+  &-subtitle
+  {
+    color: $color-text-secondary;
+    padding-bottom: 0;
+  }
+
+  &-distance
+  {
+    font-style: italic;
+    margin-left: auto;
+  }
+
+  &-cardDetails
+  {
+    margin-top: $professional-location-spacing / 2;
+  }
+
+  &-detailsText
+  {
+    @include rich_text_formatting;
+  }
+
+  &-listTitle
+  {
+    margin-top: $professional-location-spacing / 2;
+    font-weight: $font-weight-semibold;
+  }
+
+  &-list
+  {
+    list-style-type: disc;
+    list-style-position: inside;
+    padding-left: $professional-location-spacing / 2;
+  }
+
+  &-phone
+  {
+    margin-top: $professional-location-spacing / 2;
+  }
+
+  &-phone--desktop {
+    display: none;
+
+    @media (min-width: $breakpoint-mobile-max)
+    {
+      display: flex;
+    }
+  }
+
+  &-phone--mobile {
+    @include Link;
+    display: flex;
+
+    @media (min-width: $breakpoint-mobile-max)
+    {
+      display: none;
+    }
+  }
+
+  &-ctasWrapper
+  {
+    text-transform: uppercase;
+    margin-top: $professional-location-spacing / 2;
+
+    @media (min-width: $breakpoint-mobile-max)
+    {
+      margin-top: 0;
+      margin-left: $professional-location-spacing / 2;
+      justify-content: center;
+    }
+  }
+
+  &-primaryCTA,
+  &-secondaryCTA
+  {
+    display: flex;
+    margin-top: $professional-location-spacing / 2;
+  }
+}
