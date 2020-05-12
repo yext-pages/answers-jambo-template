@@ -1,4 +1,4 @@
-.HitchhikerAccordionCard
+.HitchhikerFaqAccordion
 {
   background-color: $color-brand-white;
   border-top: none;
@@ -70,8 +70,9 @@
   &-subtitle
   {
     font-size: $font-size-md;
-    color: $text-secondary;
+    color: $color-text-secondary;
     padding-bottom: $base-spacing / 2;
+    margin-left: $base-spacing;
   }
 
   &-details
@@ -80,7 +81,7 @@
 
     margin: $base-spacing / 2 $base-spacing;
     font-size: $font-size-md;
-    color: $text-primary;
+    color: $color-text-primary;
     line-height: $line-height-md;
   }
 
@@ -105,7 +106,7 @@
     margin-top: $base-spacing / 2;
   }
 
-  .Hitchhiker-cta
+  .HitchhikerCTA
   {
     flex-direction: row;
     padding: 0;

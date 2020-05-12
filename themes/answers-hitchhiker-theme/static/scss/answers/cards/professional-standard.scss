@@ -1,0 +1,122 @@
+.HitchhikerProfessionalStandard
+{
+  $professional-standard-spacing: $base-spacing !default;
+
+  display: flex;
+  font-size: $font-size-md;
+  background-color: $color-brand-white;
+  padding: $professional-standard-spacing;
+
+  &-body
+  {
+    flex-grow: 1;
+  }
+
+  &-contentWrapper
+  {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @media (min-width: $breakpoint-mobile-max)
+    {
+      justify-content: space-between;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &-imgWrapper
+  {
+    display: flex;
+    align-items: flex-start;
+    width: 6.25rem;
+    min-width: 6.25rem;
+    margin-right: 1rem;
+  }
+
+  &-title
+  {
+    font-size: $font-size-lg;
+    line-height: $line-height-lg;
+    font-weight: $font-weight-semibold;
+  }
+
+   &-titleLink
+  {
+    @include Link;
+  }
+
+  &-subtitle
+  {
+    color: $color-text-secondary;
+    padding-bottom: 0;
+  }
+
+  &-cardDetails
+  {
+    margin-top: $professional-standard-spacing / 2;
+  }
+
+  &-detailsText
+  {
+    @include rich_text_formatting;
+  }
+
+  &-listTitle
+  {
+    margin-top: $professional-standard-spacing / 2;
+    font-weight: $font-weight-semibold;
+  }
+
+  &-list
+  {
+    list-style-type: disc;
+    list-style-position: inside;
+    padding-left: $professional-standard-spacing / 2;
+  }
+
+  &-phone
+  {
+    margin-top: $professional-standard-spacing / 2;
+  }
+
+  &-phone--desktop {
+    display: none;
+
+    @media (min-width: $breakpoint-mobile-max)
+    {
+      display: flex;
+    }
+  }
+
+  &-phone--mobile {
+    @include Link;
+    display: flex;
+
+    @media (min-width: $breakpoint-mobile-max)
+    {
+      display: none;
+    }
+  }
+
+  &-ctasWrapper
+  {
+    text-transform: uppercase;
+    margin-top: $professional-standard-spacing / 2;
+
+    @media (min-width: $breakpoint-mobile-max)
+    {
+      margin-top: 0;
+      margin-left: $professional-standard-spacing / 2;
+      justify-content: center;
+    }
+  }
+
+  &-primaryCTA,
+  &-secondaryCTA
+  {
+    display: flex;
+    margin-top: $professional-standard-spacing / 2;
+  }
+}
