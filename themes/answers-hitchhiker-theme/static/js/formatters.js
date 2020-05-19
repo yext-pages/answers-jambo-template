@@ -1,10 +1,19 @@
 import { parsePhoneNumberFromString } from 'libphonenumber-js'
+import { components__address__i18n__addressForCountry } from './address-i18n.js'
 
 /**
  * Contains some of the commonly used formatters for parsing pieces
  * of profile information.
  */
 export default class Formatters {
+    static address(profile) {
+      return components__address__i18n__addressForCountry({
+        profile: profile,
+        derivedData: {address: {stateName: ''}},
+        regionAbbr: true,
+      });
+    }
+
     static phoneLink(profile, key = 'mainPhone') {
         if (!profile[key]) {
             return '';
