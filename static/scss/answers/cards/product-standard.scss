@@ -1,20 +1,34 @@
 .HitchhikerProductStandard
 {
   display: flex;
-  font-size: var(--hh-font-size-md);
-  background-color: var(--hh-color-brand-white);
-  padding: var(--hh-base-spacing);
+  font-size: var(--yxt-font-size-md);
+  line-height: var(--yxt-line-height-md);
+  background-color: var(--yxt-color-brand-white);
+  padding: var(--yxt-base-spacing);
 
-  &-detailsText
+  &-body
   {
-    @include rich_text_formatting;
+    width: 100%;
+  }
+
+  &-imgWrapper
+  {
+    display: flex;
+    width: 6.25rem;
+    margin-right: 1rem;
+  }
+
+  &-img
+  {
+    width: 100%;
+    height: auto;
   }
 
   &-title
   {
-    font-size: var(--hh-font-size-lg);
-    line-height: var(--hh-line-height-lg);
-    font-weight: var(--hh-font-weight-semibold);
+    font-size: var(--yxt-font-size-lg);
+    line-height: var(--yxt-line-height-lg);
+    font-weight: var(--yxt-font-weight-semibold);
     max-width: 100%;
     overflow-wrap: normal;
   }
@@ -26,7 +40,7 @@
 
   &-subtitle
   {
-    color: var(--hh-color-text-secondary);
+    color: var(--yxt-color-text-secondary);
     padding-bottom: 0;
   }
 
@@ -45,31 +59,22 @@
   }
 
   &-content {
-    line-height: 1.4;
-    margin-top: calc(var(--hh-base-spacing) / 4);
+    margin-top: calc(var(--yxt-base-spacing) / 4);
   }
 
-  &-imgWrapper
+  &-detailsText
   {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    min-width: 6.25rem;
-    margin-right: 1rem;
-    @media (max-width: $breakpoint-mobile-max)
-    {
-      max-width: 6.25rem;
-    }
+    @include rich_text_formatting;
   }
 
   &-ctasWrapper
   {
     text-transform: uppercase;
-    margin-top: calc(var(--hh-base-spacing) / 2);
+    margin-top: calc(var(--yxt-base-spacing) / 2);
 
     @media (min-width: $breakpoint-mobile-max)
     {
-      margin-left: calc(var(--hh-base-spacing) / 2);
+      margin-left: calc(var(--yxt-base-spacing) / 2);
       margin-top: 0;
       justify-content: center;
     }
@@ -79,6 +84,6 @@
   &-secondaryCTA
   {
     display: flex;
-    margin-top: calc(var(--hh-base-spacing) / 2);
+    margin-top: calc(var(--yxt-base-spacing) / 2);
   }
 }
