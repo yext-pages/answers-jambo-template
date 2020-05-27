@@ -1,5 +1,6 @@
 import { parsePhoneNumberFromString } from 'libphonenumber-js'
 import { components__address__i18n__addressForCountry } from './address-i18n.js'
+import CtaFormatter from '@yext/cta-formatter';
 
 /**
  * Contains some of the commonly used formatters for parsing pieces
@@ -218,10 +219,12 @@ export default class Formatters {
   /*
   * Given object with url and alternateText, changes url to use https
   */
-  static image(img, size = '200x', atLeastAsLarge = true) {
+  static image(simpleOrComplexImage = {}, size = '200x', atLeastAsLarge = true) {
+    let img = simpleOrComplexImage.image || simpleOrComplexImage;
     if (!img) {
       return {};
     }
+
     if (!img.url) {
       return img;
     }
@@ -802,6 +805,17 @@ export default class Formatters {
     time.setHours(Math.floor(yextTime / 100));
     time.setMinutes(yextTime % 100);
     return time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: !twentyFourHourClock })
+  }
+
+  /**
+   * @param {Object} cta Call To Action field type
+   * @return {string} The formatted url associated with the Call to Action object if the cta object exists, null otherwise
+   */
+  static generateCTAFieldTypeLink(cta) {
+    if (!cta) {
+      return null;
+    }
+    return CtaFormatter.generateCTAFieldTypeLink(cta);
   }
 }
 
