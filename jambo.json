@@ -1,13 +1,16 @@
 {
-  "defaultTheme": "answers-hitchhiker-theme",
   "dirs": {
     "themes": "themes",
     "config": "config",
     "output": "desktop",
     "pages": "pages",
     "partials": [
-      "partials"
+      "partials",
+      "layouts/header.hbs",
+      "layouts/footer.hbs",
+      "layouts/headincludes.hbs"
     ],
     "preservedFiles": []
-  }
+  },
+  "defaultTheme": "answers-hitchhiker-theme"
 }
