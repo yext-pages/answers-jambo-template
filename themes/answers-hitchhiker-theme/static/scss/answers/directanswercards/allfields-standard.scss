@@ -54,6 +54,11 @@
     display: inline-flex;
   }
 
+  &-column
+  {
+    width: 100%;
+  }
+
   &-content
   {
     display: flex;
@@ -200,6 +205,14 @@
 
     display: inline-flex;
     align-items: center;
+  }
+
+  &-viewMoreWrapper
+  {
+    &:not(:first-child)
+    {
+      margin-top: calc(var(--yxt-base-spacing) / 2);
+    }
   }
 
   &-viewMoreIcon
