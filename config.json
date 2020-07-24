@@ -17,7 +17,9 @@
     "dependencies": {
       "install_deps_cmd": "./ci/install_deps.sh",
       "required_files": [
-        "package.json"
+        "package.json",
+        "package-lock.json",
+        "ci/install_deps.sh"
       ]
     }
   }
