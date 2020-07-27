@@ -85,4 +85,12 @@
   {
     display: flex;
   }
+
+  &-spellCheck
+  {
+    .yxt-SpellCheck
+    {
+      margin-bottom: calc(2*var(--yxt-base-spacing));
+    }
+  }
 }

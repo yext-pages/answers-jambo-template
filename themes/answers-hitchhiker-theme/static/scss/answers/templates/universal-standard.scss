@@ -29,4 +29,13 @@
   {
     width: 100%;
   }
+
+  &-spellCheck
+  {
+    .yxt-SpellCheck
+    {
+      margin-top: var(--yxt-base-spacing);
+      margin-bottom: var(--yxt-base-spacing);
+    }
+  }
 }
