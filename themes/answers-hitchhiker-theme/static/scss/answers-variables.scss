@@ -5,7 +5,7 @@
 :root {
   // control colors throughout the theme and SDK
   --yxt-color-brand-primary: #0f70f0;
-  --yxt-color-brand-hover: #0C5ECB;
+  --yxt-color-brand-hover: var(--yxt-color-text-secondary);
   --yxt-color-brand-white: #fff;
   --yxt-color-text-primary: #212121;
   --yxt-color-text-secondary: #757575;
@@ -20,6 +20,8 @@
   --hh-answers-container-width-filters: 950px;
   --hh-color-gray-1: #dcdcdc;
   --hh-color-gray-2: #fafafa;
+  --hh-three-columns-width: 212px;
+  --hh-two-columns-width: 326px;
 
   // common border variables
   --yxt-border-default: 1px solid var(--yxt-color-borders);
