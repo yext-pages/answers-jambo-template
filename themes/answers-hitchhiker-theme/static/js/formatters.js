@@ -3,6 +3,8 @@ import { components__address__i18n__addressForCountry } from './address-i18n.js'
 import CtaFormatter from '@yext/cta-formatter';
 import provideOpenStatusTranslation from './open-status-18n';
 
+import cloneDeep from 'lodash.cloneDeep';
+
 /**
  * Contains some of the commonly used formatters for parsing pieces
  * of profile information.
@@ -382,9 +384,13 @@ export default class Formatters {
   }
 
   /**
-   * TODO: this formatter should not mutate the profile data.
+   * Returns a string, a formatted representation of the open hours status
+   * for the given profile.
+   * @param {Object} profile The profile information of the entity
+   * @param {String} locale The locale for the time string
+   * @param {boolean} isTwentyFourHourClock Use 24 hour vs 12 hour formatting for time string
    */
-  static openStatus(profile, locale = 'en-US') {
+  static openStatus(profile, locale = 'en-US', isTwentyFourHourClock = false) {
     if (!profile.hours) {
       return '';
     }
@@ -413,7 +419,7 @@ export default class Formatters {
     hours.nextDay = nextDay;
     hours.status = status;
 
-    return this._getTodaysMessage({ hoursToday: hours, isTwentyFourHourClock: false, locale: locale });
+    return this._getTodaysMessage({ hoursToday: hours, isTwentyFourHourClock, locale: locale });
   }
 
   static _prepareIntervals({ days }) { //days is a parsed json of hours.days
@@ -574,6 +580,7 @@ export default class Formatters {
    * @returns {Object[]}
    */
   static _formatHoursForAnswers(days, timezone) {
+    const formattedDays = cloneDeep(days);
     const daysOfWeek = [
       'SUNDAY',
       'MONDAY',
@@ -583,10 +590,10 @@ export default class Formatters {
       'FRIDAY',
       'SATURDAY',
     ];
-    const holidayHours = days.holidayHours || [];
-    for (let day in days) {
+    const holidayHours = formattedDays.holidayHours || [];
+    for (let day in formattedDays) {
       if (day === 'holidayHours' || day === 'reopenDate') {
-        delete days[day];
+        delete formattedDays[day];
       } else {
         const currentDayName = day.toUpperCase();
         const numberTimezone = this._convertTimezoneToNumber(timezone);
@@ -597,13 +604,13 @@ export default class Formatters {
           let holidayDate = new Date(holiday.date + 'T00:00:00.000');
           if (dayNameToDate.toDateString() == holidayDate.toDateString()) {
             holiday.intervals = this._formatIntervals(holiday.openIntervals);
-            days[day].dailyHolidayHours = holiday;
+            formattedDays[day].dailyHolidayHours = holiday;
           }
         }
 
-        days[day].day = day.toUpperCase();
+        formattedDays[day].day = day.toUpperCase();
 
-        let intervals = days[day].openIntervals;
+        let intervals = formattedDays[day].openIntervals;
         if (intervals) {
           for (let interval of intervals) {
             for (let period in interval) {
@@ -611,13 +618,13 @@ export default class Formatters {
             }
           }
         } else {
-          days[day].openIntervals = [];
+          formattedDays[day].openIntervals = [];
         }
-        days[day].intervals = days[day].openIntervals;
+        formattedDays[day].intervals = formattedDays[day].openIntervals;
       }
     }
 
-    return Object.values(days);
+    return Object.values(formattedDays);
   }
 
   // "-05:00 -> -5
