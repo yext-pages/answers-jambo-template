@@ -48,6 +48,10 @@ export default class Formatters {
     }
 
     static getDirectionsUrl(profile, key = 'address') {
+        if (profile.googlePlaceId) {
+          return `https://www.google.com/maps/place/?q=place_id:${profile.googlePlaceId}`;
+        }
+
         const addr = profile[key];
         if (!addr) {
           return '';
@@ -683,8 +687,8 @@ export default class Formatters {
   }
 
   /**
-   * Calculates a yext time and date using utc offsets
-   * If no valid utc offsets are found, time and date will
+   * Calculates a yext time and date using utc offset
+   * If no valid utc offset is provided, time and date will
    * be based off of clients local time.
    *
    * Example
@@ -693,7 +697,7 @@ export default class Formatters {
    * Their localUtcOffset will be +4 hours (for user offset, +/- is flipped)
    *
    * They are viewing a store in germany, CEST/GMT+2
-   * For this date, the utcOffset will be +2 hours (for entity offset, +/- is normal)
+   * For this date, the timezoneUtcOffset will be +2 hours (for entity offset, +/- is normal)
    *
    * Adding this together:
    * now + utcOffset + localUtcOffset -> now + 2 hours + 4 hours
@@ -705,33 +709,20 @@ export default class Formatters {
    * pages to display as if the user was in the same timezone as the entity.
    *
    * @param {Date} now
-   * @param {{start: number, offset: number}[]} utcOffsets
+   * @param {string} timezoneUtcOffset e.g. in EDT, GMT-0400, this value would be "-04:00"
    * @returns {{ time: number, day: string }}
    */
-  static _calculateYextDayTime(now, utcOffsets) {
-    // Get offset data from store page metadata
-
-    // Init UTC offset as just zero
-    let utcOffset = 0;
-
+  static _calculateYextDayTime(now, timezoneUtcOffset) {
     // Get the UTC offset of the clients timezone (minutes converted to millis)
     const localUtcOffset = now.getTimezoneOffset() * 60 * 1000;
 
-    // If the store has UTC offset data, loop through the data
-    if (utcOffsets && utcOffsets.length) {
-      for (const offsetPeriod of utcOffsets) {
+    // Get the entity's offset in millis
+    const entityUtcOffsetInHours = this._convertTimezoneToNumber(timezoneUtcOffset);
+    const entityUtcOffsetMillis = entityUtcOffsetInHours * 60 * 60 * 1000;
 
-        // The store offset data is provided as a list of dates with timestamps
-        // Only use offsets that are valid, which are offsets that started prior to the current time
-        if (offsetPeriod.start * 1000 < now.valueOf()) {
-          utcOffset = offsetPeriod.offset * 1000;
-        }
-      }
-    }
-
-    // If a valid offset was found, set the today value to a new date that accounts for the store & local UTC offsets
-    if (utcOffset !== 0) {
-      now = new Date(now.valueOf() + utcOffset + localUtcOffset);
+    // If a valid offset was found, set the today value to a new date that accounts for the entity & local UTC offsets
+    if (entityUtcOffsetMillis !== 0) {
+      now = new Date(now.valueOf() + entityUtcOffsetMillis + localUtcOffset);
     }
     const time = this._getYextTime(now);
     const day = this._getYextDay(now);
@@ -839,7 +830,12 @@ export default class Formatters {
     let time = new Date();
     time.setHours(Math.floor(yextTime / 100));
     time.setMinutes(yextTime % 100);
-    return time.toLocaleString(locale, { hour: 'numeric', minute: 'numeric', hour12: !twentyFourHourClock })
+
+    return time.toLocaleString(locale, {
+      hour: 'numeric',
+      minute: 'numeric',
+      hourCycle: twentyFourHourClock ? 'h24' : 'h12'
+    });
   }
 
   /**
