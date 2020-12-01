@@ -1,1 +1,0 @@
-/* Code added here will be executed on the DOMContentLoaded event */
