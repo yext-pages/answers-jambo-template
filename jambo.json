@@ -4,14 +4,9 @@
     "config": "config",
     "output": "desktop",
     "pages": "pages",
-    "translations": "translations",
     "partials": [
-      "partials",
-      "layouts/header.hbs",
-      "layouts/footer.hbs",
-      "layouts/headincludes.hbs"
+      "partials"
     ],
     "preservedFiles": []
-  },
-  "defaultTheme": "answers-hitchhiker-theme"
+  }
 }
