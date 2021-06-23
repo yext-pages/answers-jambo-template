@@ -41,7 +41,7 @@
     "testcafe": "^1.14.0",
     "testcafe-browser-provider-browserstack": "^1.13.1",
     "underscore.string": "^3.3.5",
-    "urijs": "1.18.12",
+    "urijs": "1.19.6",
     "yargs": "^17.0.1"
   },
   "jest": {
