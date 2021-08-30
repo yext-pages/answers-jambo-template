@@ -1,9 +1,0 @@
-{
-  "verticalsToConfig": {
-    "KM": {
-      "mapConfig": {
-        "mapProvider": "Google"
-      }
-    }
-  }
-}
