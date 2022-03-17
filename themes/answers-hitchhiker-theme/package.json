@@ -46,7 +46,7 @@
     "postcss": "^8.2.1",
     "puppeteer": "^10.2.0",
     "serve": "^11.3.2",
-    "simple-git": "^2.24.0",
+    "simple-git": "^3.3.0",
     "testcafe": "^1.17.1",
     "testcafe-browser-provider-browserstack": "^1.13.1",
     "underscore.string": "^3.3.5",
