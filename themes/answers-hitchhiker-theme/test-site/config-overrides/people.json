@@ -1,0 +1,48 @@
+{
+  "pageTitle": "People",
+  "componentSettings": {
+    "SearchBar": {
+      "customIconUrl": "static/assets/ayaya.png"
+    },
+    "Facets": {
+      "expand": false,
+      "showMore": false,
+      "searchOnChange": true,
+      "fields": {
+        "c_puppyPreference": {
+          "searchable": true,
+          "fieldLabels": {
+            "Frodo": "FRODO !!!",
+            "Marty": "MARTY !!!"
+          },
+          "optionsOrder": "ASC"
+        },
+        "c_employeeDepartment": {
+          "fieldLabels": {
+            "Strategy": "STRATEGY !!!"
+          },
+          "optionsOrder": "DESC"
+        },
+        "languages": {
+          "optionsOrderList": [
+            "Italian",
+            "French",
+            "German"
+          ]
+        }
+      }
+    },
+    "SortOptions": {
+      "options": [{
+        "type": "RELEVANCE",
+        "label": "Relevance"
+      }]
+    }
+  },
+  "verticalsToConfig": {
+    "people": {
+      "label": "People",
+      "iconUrl": "static/assets/ayaya.png"
+    }
+  }
+}
