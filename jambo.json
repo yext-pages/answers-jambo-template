@@ -5,6 +5,7 @@
     "output": "desktop",
     "pages": "pages",
     "partials": [
+      "cards",
       "partials",
       "layouts/header.hbs",
       "layouts/footer.hbs",
