@@ -4,7 +4,9 @@
     "config": "config",
     "output": "desktop",
     "pages": "pages",
+    "translations":"translations",
     "partials": [
+      "cards",
       "partials",
       "layouts/header.hbs",
       "layouts/footer.hbs",
