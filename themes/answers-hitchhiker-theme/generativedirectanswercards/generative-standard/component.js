@@ -55,11 +55,7 @@ class generative_standardComponent extends BaseGDACard['generative-standard'] {
       citationsData,
       success,
       sourceUrlFields,
-      linkTarget,
-      feedbackTextOnSubmission: 'Thank you for your feedback!',
-      feedbackText: 'Was this the answer you were looking for?',
-      positiveFeedbackSrText: 'This answered my question',
-      negativeFeedbackSrText: 'This did not answer my question'
+      linkTarget
     }
   }
 
